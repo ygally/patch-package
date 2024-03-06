@@ -1,10 +1,10 @@
 {
-  "name": "patch-package",
-  "version": "8.0.0",
-  "description": "Fix broken node modules with no fuss",
+  "name": "@ygally/patch-package",
+  "version": "8.0.1",
+  "description": "Fix broken node modules with no fuss + mass debug logs",
   "main": "dist/index.js",
-  "repository": "github:ds300/patch-package",
-  "author": "David Sheldrick",
+  "repository": "https://github.com/ygally/patch-package.git",
+  "author": "Yannick Gally",
   "license": "MIT",
   "engines": {
     "node": ">=14",
