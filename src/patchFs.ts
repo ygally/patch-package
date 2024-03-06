@@ -1,16 +1,20 @@
+import klawSync from "klaw-sync"
 import {
   PatchedPackageDetails,
   getPackageDetailsFromPatchFilename,
 } from "./PackageDetails"
 import { relative } from "./path"
-import klawSync from "klaw-sync"
 
 export const getPatchFiles = (patchesDir: string) => {
   try {
+    klawSync(patchesDir, { nodir: true }).forEach((elem) =>
+      console.log(" DEBUG getPatchFiles | - Potential file : " + elem),
+    )
     return klawSync(patchesDir, { nodir: true })
       .map(({ path }) => relative(patchesDir, path))
       .filter((path) => path.endsWith(".patch"))
   } catch (e) {
+    console.log("Error while looking for patches : ", e)
     return []
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@ygally/patch-package",
-  "version": "8.0.1",
+  "version": "8.0.2",
   "description": "Fix broken node modules with no fuss + mass debug logs",
   "main": "dist/index.js",
   "repository": "https://github.com/ygally/patch-package.git",
