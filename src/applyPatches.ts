@@ -3,9 +3,9 @@ import { writeFileSync } from "fs"
 import { existsSync } from "fs-extra"
 import { posix } from "path"
 import semver from "semver"
+import { PackageDetails, PatchedPackageDetails } from "./PackageDetails"
 import { hashFile } from "./hash"
 import { logPatchSequenceError } from "./makePatch"
-import { PackageDetails, PatchedPackageDetails } from "./PackageDetails"
 import { packageIsDevDependency } from "./packageIsDevDependency"
 import { executeEffects } from "./patch/apply"
 import { readPatch } from "./patch/read"
@@ -13,9 +13,9 @@ import { reversePatch } from "./patch/reverse"
 import { getGroupedPatches } from "./patchFs"
 import { join, relative } from "./path"
 import {
+  PatchState,
   clearPatchApplicationState,
   getPatchApplicationState,
-  PatchState,
   savePatchApplicationState,
 } from "./stateFile"
 
@@ -110,7 +110,7 @@ export function applyPatchesForApp({
   const groupedPatches = getGroupedPatches(patchesDirectory)
 
   if (groupedPatches.numPatchFiles === 0) {
-    console.log(chalk.blueBright("No patch files found"))
+    console.log(chalk.blueBright("No patch files found [from '" + patchesDirectory + "']"))
     return
   }
 
