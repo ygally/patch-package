@@ -8,7 +8,9 @@ import { relative } from "./path"
 export const getPatchFiles = (patchesDir: string) => {
   try {
     klawSync(patchesDir, { nodir: true }).forEach((elem) =>
-      console.log(" DEBUG getPatchFiles | - Potential file : " + elem),
+      console.log(
+        " DEBUG getPatchFiles | - Potential file : " + JSON.stringify(elem),
+      ),
     )
     return klawSync(patchesDir, { nodir: true })
       .map(({ path }) => relative(patchesDir, path))
